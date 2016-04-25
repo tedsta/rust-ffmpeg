@@ -118,7 +118,7 @@ impl Context {
 		unsafe {
 			sws_scale(self.as_mut_ptr(),
 				(*input.as_ptr()).data.as_ptr() as *const *const _, (*input.as_ptr()).linesize.as_ptr() as *const _,
-				0, self.output.height as c_int,
+				self.output.width as c_int, self.output.height as c_int,
 				(*output.as_mut_ptr()).data.as_ptr() as *mut *mut _, (*output.as_mut_ptr()).linesize.as_ptr() as *mut _);
 		}
 
